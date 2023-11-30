@@ -1,4 +1,5 @@
 import { SVGProps, useState } from 'react';
+import { motion } from 'framer-motion';
 import { JSX } from 'react/jsx-runtime';
 
 export default function App() {
@@ -28,7 +29,7 @@ export default function App() {
               onClick={() => setStep(step < 2 ? step : step - 1)}
               className="rounded px-2 py-1 text-slate-400 hover:text-slate-700"
             >
-              Back
+              Previous
             </button>
             <button
               onClick={() => setStep(step > 4 ? step : step + 1)}
@@ -36,7 +37,7 @@ export default function App() {
                 step > 4 ? 'pointer-events-none opacity-50' : ''
               } bg flex items-center justify-center rounded-full bg-blue-500 py-1.5 px-3.5 font-medium tracking-tight text-white hover:bg-blue-600 active:bg-blue-700`}
             >
-              Continue
+              Next
             </button>
           </div>
         </div>
@@ -54,14 +55,27 @@ function Step({ step, currentStep }: { step: number; currentStep: number }) {
         : 'complete';
 
   return (
-    <div
-      className={`${
-        status === 'active'
-          ? 'border-blue-500 bg-white text-blue-500'
-          : status === 'complete'
-            ? 'border-blue-500 bg-blue-500'
-            : 'border-slate-200 bg-white text-slate-400'
-      } flex h-10 w-10 items-center justify-center rounded-full border-2 font-semibold`}
+    <motion.div
+      initial={false}
+      animate={status}
+      variants={{
+        inactive: {
+          backgroundColor: 'var(--white)',
+          borderColor: 'var(--slate-200)',
+          color: 'var(--slate-400)',
+        },
+        complete: {
+          backgroundColor: 'var(--blue-500)',
+          borderColor: 'var(--blue-500)',
+          color: 'var(--white)',
+        },
+        active: {
+          backgroundColor: 'var(--white)',
+          borderColor: 'var(--blue-500)',
+          color: 'var(--blue-500)',
+        },
+      }}
+      className="flex h-10 w-10 items-center justify-center rounded-full border-2 font-semibold"
     >
       <div className="flex items-center justify-center">
         {status === 'complete' ? (
@@ -70,7 +84,7 @@ function Step({ step, currentStep }: { step: number; currentStep: number }) {
           <span>{step}</span>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
