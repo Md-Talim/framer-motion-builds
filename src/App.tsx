@@ -5,7 +5,7 @@ export default function App() {
   const [step, setStep] = useState(1);
 
   return (
-    <div className="flex min-h-screen items-start bg-gradient-to-br from-slate-700 to-slate-900 pt-40">
+    <div className="flex min-h-screen items-start bg-purple-600 pt-40">
       <div className="mx-auto w-full max-w-md rounded-2xl bg-white">
         <div className="flex justify-between rounded p-8">
           <Step step={1} currentStep={step} />
@@ -34,7 +34,7 @@ export default function App() {
               onClick={() => setStep(step > 4 ? step : step + 1)}
               className={`${
                 step > 4 ? "pointer-events-none opacity-50" : ""
-              } bg flex items-center justify-center rounded-full bg-blue-500 py-1.5 px-3.5 font-medium tracking-tight text-white hover:bg-blue-600 active:bg-blue-700`}
+              } bg flex items-center justify-center rounded-full bg-purple-500 py-1.5 px-3.5 font-medium tracking-tight text-white hover:bg-purple-600 active:bg-purple-700`}
             >
               Next
             </button>

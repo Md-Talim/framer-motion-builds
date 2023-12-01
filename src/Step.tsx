@@ -52,7 +52,7 @@ const Step = ({ step, currentStep }: { step: number; currentStep: number }) => {
           type: "tween",
           ease: "circOut",
         }}
-        className="absolute bg-blue-200 inset-0 rounded-full"
+        className="absolute bg-purple-200 inset-0 rounded-full"
       />
 
       <motion.div
@@ -64,14 +64,14 @@ const Step = ({ step, currentStep }: { step: number; currentStep: number }) => {
             color: "var(--slate-400)",
           },
           complete: {
-            backgroundColor: "var(--blue-500)",
-            borderColor: "var(--blue-500)",
+            backgroundColor: "var(--purple-500)",
+            borderColor: "var(--purple-500)",
             color: "var(--white)",
           },
           active: {
             backgroundColor: "var(--white)",
-            borderColor: "var(--blue-500)",
-            color: "var(--blue-500)",
+            borderColor: "var(--purple-500)",
+            color: "var(--purple-500)",
           },
         }}
         transition={{ duration: 0.2 }}
